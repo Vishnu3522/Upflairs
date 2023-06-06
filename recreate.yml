@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jedep
+spec:
+  replicas: 10
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+        color: red
+  template:
+    metadata:
+      labels:
+        color: red
+    spec:
+      containers:
+      - name: jedepc1
+        image: nginx
+        ports:
+        - containerPort: 80
